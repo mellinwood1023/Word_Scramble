@@ -62,8 +62,8 @@ function shuffle(str) {
         let j = Math.floor(Math.random() * strArray.length);
 
         let temp = strArray[i];
-        strArray [i] = strArray [j];
-        strArray [j] = temp;
+        strArray[i] = strArray[j];
+        strArray[j] = temp;
     }
     return strArray.join("");
 
