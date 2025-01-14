@@ -1,4 +1,4 @@
-const easyWords = [
+const word = [
     "Pilot",
     "Eagle",
     "Quick",
@@ -6,7 +6,7 @@ const easyWords = [
     "Crazy",
 ];
 
-const easyHints = [
+const hint = [
     "Flying",
     "American Symbol",
     "Not slow",
@@ -30,6 +30,8 @@ function shuffle(str) {
 
 };
 
+const timerEl = document.getElementById('countdown');
+const mainEl = document.getElementById('main');
 const message = `Time is up! The correct answer was ${displayWord}.`;
 
 function countdown() {
@@ -37,44 +39,39 @@ function countdown() {
   
     const timeInterval = setInterval(function () {
       if (timeLeft > 1) {
-        timerEl.textContent = timeLeft + 'Time left:';
+        timerEl.textContent = timeLeft + '  seconds left';
         timeLeft--;
       } else if (timeLeft === 1) {
-        timerEl.textContent = timeLeft + 'Time left:';
+        timerEl.textContent = timeLeft + '  seconds left';
         timeLeft--;
       } else {
         timerEl.textContent = '';
         clearInterval(timeInterval);
-        displayMessage();
       }
     }, 1000);
   }
+countdown();
 
 
-shuffle(easyWords[0]);
 
 function check() { 
     let input = document.getElementById("input"); 
     let output = document.getElementById("output"); 
-    if ( 
-        input.value.toLocaleLowerCase() === 
-        displayWord.toLocaleLowerCase() 
-    ) 
+    if ( input.value.toLocaleLowerCase() === word.toLocaleLowerCase() ) {
         output.innerHTML = "Result: Correct"; 
-    else output.innerHTML = "Result: Incorrect"; 
+    }else {output.innerHTML = "Result: Incorrect";}; 
 } 
 
 function refresh() { 
     index = Math.floor(Math.random() * 5); 
-    displayWord = easyWords[index]; 
-    displayHint = easyHints[index]; 
+    displayWord = word[index]; 
+    displayHint = hint[index]; 
     scrambleWord =  
-        document.getElementById("displayWord"); 
+        document.getElementById("word"); 
+    console.log(displayWord)
     scrambleWord.innerText = 
         shuffle(displayWord).toUpperCase(); 
-    let easyHints = document.getElementById("easyHints"); 
-    hint.innerHTML = "Hint:" + displayHint; 
+
     document.getElementById("output").innerText = "Result:"; 
 } 
-  
 refresh();
