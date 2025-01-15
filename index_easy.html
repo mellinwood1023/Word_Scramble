@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Word Scramble Game</title>
-  <link rel="stylesheet" href="./style_easy.css">
+  <link rel="stylesheet" href="./assets/style_easy.css">
 </head>
+
 <body>
-  <div class="container">
-      <h1 class="welcome"></h1>
-        <h2 id="countdown"></h2>
-        <p id="main"></p>
+  <header>
+    <h1>Welcome to Word Scramble! (easy version)</h1>
+    <nav>
+      <button class="start-button">Start</button>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <div class="card word-guess">
+        <div class="large-font word-blanks"> Word R-a-m-b-l-e-S-c</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card results">
+        <div class="win-loss-container">
+          <div>
+            <h2>Wins: <span class="win">0 </span> </h2>
+            <h2>Losses: <span class="lose">0</span></h2>
+          </div>
+          <button class="reset-button">Reset Score</button>
+        </div>
+        <div class="card timer">
+          <div class="countdown">
+            <div class="large-font timer-count">60</div>
+            <h3>seconds remaining</h3>
+          </div>
       
+
   </div>
   <div id="container2">
     <h1>WoRd ScRaMbLe</h1>
@@ -25,7 +51,21 @@
       <div type="text" id="result" class="result" placeholder=""></div>
   </div>
 
-<script src="./script_easy.js"></script>
+        </div>
+      </div>
+      <div id="container2">
+        <div id="word" class="larg-font"></div>
+        <input type="text" id="input" placeholder="Unscramble here...">
+        <button id="hint">Hint</button>
+
+        <div id="message"></div>
+        <button id="submit">Submit</button>
+        <button id="output">Give up!?</button>
+      </div>
+    </section>
+
+
+    <script src="./script_easy.js"></script>
 
 </body>
 
