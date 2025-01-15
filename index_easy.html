@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Word Scramble Game</title>
-  <link rel="stylesheet" href="style_easy.css">
+  <link rel="stylesheet" href="./style_easy.css">
 </head>
 <body>
   <div class="container">
@@ -17,12 +17,12 @@
   <div id="container2">
     <h1>WoRd ScRaMbLe</h1>
       <div id="word"></div>
-        <input type="text" id="input" placeholder="Unscramble here...">
-        <button id="hint">Hint</button>
+        <input type="text" id="guessField" class ="guessField" placeholder="Unscramble here!"/>
+        <button id="hint" >Hint</button>
         
       <div id="message"></div>
-         <button id="submit">Submit</button>
-         <button id="output">Give up!?</button>
+         <button input type="submit" value="Submit" id="submitGuess" class="submitGuess" >Submit</button>
+      <div type="text" id="result" class="result" placeholder=""></div>
   </div>
 
 <script src="./script_easy.js"></script>
