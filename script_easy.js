@@ -57,7 +57,7 @@ countdown();
 
 function refresh() { 
     index = Math.floor(Math.random() * 5); 
-    displayWord = word[index]; 
+    displayWord = word[index].toLocaleLowerCase(); 
     displayHint = hint[index]; 
     scrambleWord =  
         document.getElementById("word"); 
@@ -68,16 +68,17 @@ function refresh() {
 refresh();
 
 function checkGuess() { 
-    const userGuess = Text(guessfield.value);
+    const userGuess = document.getElementById("guessField").value.toLowerCase();
     if (userGuess === displayWord) {
-        document.getElementById("result") = "Correct!";
+        result.textContent= `Correct!`;
         result.style.backgroundColor = "green";
+        console.log('Correct!');
         refresh();
     } else {
         result.textContent = `Try again`;
         result.style.backgroundColor = "red";
+        console.log('Try again');
     }
-    guessfield.value = "";
     
 } 
 submitGuess.addEventListener("click", checkGuess);
