@@ -45,15 +45,14 @@ function countdown() {
         timerEl.textContent = timeLeft + '  seconds left';
         timeLeft--;
       } else {
-        timerEl.textContent = `OUT OF TIME! The word was ${displayWord.toLowerCase()}`;
+        timerEl.textContent = '';
         clearInterval(timeInterval);
+        alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
       }
     }, 1000);
-    refresh();
+  
   }
 countdown(); 
-
-
 
 
 function refresh() { 
@@ -75,6 +74,7 @@ function checkGuess() {
         result.style.backgroundColor = "green";
         console.log('Correct!');
         refresh();
+        
     } else {
         result.textContent = `Try again`;
         result.style.backgroundColor = "red";
