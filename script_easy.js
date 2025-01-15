@@ -45,10 +45,11 @@ function countdown() {
         timerEl.textContent = timeLeft + '  seconds left';
         timeLeft--;
       } else {
-        timerEl.textContent = '';
+        timerEl.textContent = `OUT OF TIME! The word was ${displayWord.toLowerCase()}`;
         clearInterval(timeInterval);
       }
     }, 1000);
+    refresh();
   }
 countdown(); 
 
