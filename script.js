@@ -19,8 +19,11 @@ dropdownItems.forEach(item => {
         // save to localSstorage
         localStorage.setItem('difficulty', selectedValue);
 
-        // Do something with the selected value
-        handleDifficultyChange(selectedValue);
+        // upon clicking play go to proper page
+        const button = document.querySelector('.btn');
+        button.addEventListener('click', function () {
+            handleDifficultyChange(selectedValue);
+        });
     });
 });
 
@@ -43,13 +46,17 @@ function handleDifficultyChange(difficulty) {
     // Add your logic here based on the selected difficulty
     switch (difficulty) {
         case 'easy':
-            // Handle easy mode
+            // link to easy page
+            window.location.href = 'index_easy.html';
             break;
         case 'medium':
             // Handle medium mode
+            window.location.href = 'index_medium.html';
             break;
         case 'hard':
             // Handle hard mode
+            window.location.href = 'index_hard.html';
             break;
     }
+
 }
