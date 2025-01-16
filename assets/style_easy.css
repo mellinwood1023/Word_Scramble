@@ -11,18 +11,31 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgba(237, 245, 249, 1) 63%);
+  background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgb(237, 245,249) 63%);
 }
 
-/* creates a card with: A yellow-to-brown gradient background Rounded corners A subtle border A professional-looking shadow Centered positioning Internal spacing */
+header {
+  padding: 50px;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgb(237, 245, 249) 80%);
+  color: black;
+  border-bottom: 10px lightgray;
+
+}
+/* creates a card with: yellow-to-brown gradient background; Rounded corners; subtle border; A shadow; Centered positioning; Internal spacing */
 .card { 
-  background: radial-gradient(circle, rgba(240, 230, 140, 1) 0%, rgba(187, 124, 33, 0.604079131652661) 100%);
+  background: radial-gradient(circle, rgb(140, 177, 240) 0%, rgba(187, 124, 33, 0.6) 100%);
   border: 1px solid #eceff1;
   border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
   margin: auto;
   padding: 10px;
+}
+
+.card.results {
+ padding: 15px;
+margin-top: 15px;
 }
 
 .timer {
@@ -58,7 +71,7 @@ body {
   font-size: 16px;
   height: 30px;
   line-height: 8px;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .container {
@@ -83,7 +96,7 @@ body {
 }
 
 button {
-  background: radial-gradient(circle, rgba(240, 230, 140, 1) 0%, rgba(187, 96, 33, 0.9542191876750701) 100%);
+  background: radial-gradient(circle, rgba(240, 230, 140, 1) 0%, rgba(187, 96, 33, 0.95) 100%);
   border-radius: 8px;
   color: #13293d;
   cursor: pointer;
@@ -91,7 +104,7 @@ button {
   letter-spacing: 0.21px;
   line-height: 16px;
   max-width: 255px;
-  padding: 20px 52px;
+  padding: 20px 40px;
   text-align: center;
   transition-duration: 0.15s;
   transition-property: background-color;

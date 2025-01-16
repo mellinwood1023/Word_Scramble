@@ -33,7 +33,6 @@ function shuffle(str) {
 const timerEl = document.getElementById('countdown');
 const mainEl = document.getElementById('main');
 
-
 function countdown() {
     let timeLeft = 60;
   
@@ -45,15 +44,13 @@ function countdown() {
         timerEl.textContent = timeLeft + '  seconds left';
         timeLeft--;
       } else {
-        timerEl.textContent = '';
+        timerEl.textContent = `OUT OF TIME! The word was ${displayWord.toLowerCase()}`;
         clearInterval(timeInterval);
       }
     }, 1000);
+    refresh();
   }
 countdown(); 
-
-
-
 
 function refresh() { 
     index = Math.floor(Math.random() * 5); 
@@ -79,6 +76,5 @@ function checkGuess() {
         result.style.backgroundColor = "red";
         console.log('Try again');
     }
-    
 } 
 submitGuess.addEventListener("click", checkGuess);
