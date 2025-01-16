@@ -13,6 +13,54 @@ body {
   justify-content: flex-start;
   background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgba(237, 245, 249, 1) 63%);
 }
+
+/* creates a card with: A yellow-to-brown gradient background Rounded corners A subtle border A professional-looking shadow Centered positioning Internal spacing */
+.card { 
+  background: radial-gradient(circle, rgba(240, 230, 140, 1) 0%, rgba(187, 124, 33, 0.604079131652661) 100%);
+  border: 1px solid #eceff1;
+  border-radius: 8px;
+  box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
+    rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
+  margin: auto;
+  padding: 10px;
+}
+
+.timer {
+  height: 240px;
+  padding: 10px;
+  background: #13293d;
+  color: #fff;
+  text-align: center;
+}
+
+.timer-text {
+  padding: 55px;
+}
+
+.large-font {
+  font-size: 3.5em;
+  text-align: center;
+}
+
+.results {
+  width: 30vw;
+  height: 400px;
+}
+
+.win-loss-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: auto;
+}
+
+.reset-button {
+  font-size: 16px;
+  height: 30px;
+  line-height: 8px;
+  margin-top: 20px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -20,10 +68,18 @@ body {
   padding: 100px;
 }
 
-.container2 {
+/* .container2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+} */
+
+#word {
+  font-size: 60px;
+  height: 30px;
+  line-height: 8px;
+  margin-top: 20px;
+  padding: 50px;
 }
 
 button {
@@ -31,7 +87,7 @@ button {
   border-radius: 8px;
   color: #13293d;
   cursor: pointer;
-  font-size: 2em;
+  font-size: 1.5em;
   letter-spacing: 0.21px;
   line-height: 16px;
   max-width: 255px;

@@ -19,7 +19,13 @@
   <main>
     <section>
       <div class="card word-guess">
-        <div class="large-font word-blanks"> Word R-a-m-b-l-e-S-c</div>
+        <div id="word" class="larg-font word-blanks"></div>
+        <!-- <div class="large-font word-blanks"> Word R-a-m-b-l-e-S-c</div> -->
+        <input type="text" id="input" placeholder="Unscramble here...">
+        <button id="hint">Hint</button>
+        <div id="message"></div>
+        <button id="submit">Submit</button>
+        <button id="output">Give up!?</button>
       </div>
     </section>
 
@@ -37,36 +43,19 @@
             <div class="large-font timer-count">60</div>
             <h3>seconds remaining</h3>
           </div>
-      
-
-  </div>
-  <div id="container2">
-    <h1>WoRd ScRaMbLe</h1>
-      <div id="word"></div>
-        <input type="text" id="guessField" class ="guessField" placeholder="Unscramble here!"/>
-        <button id="hint" >Hint</button>
-        
-      <div id="message"></div>
-         <button input type="submit" value="Submit" id="submitGuess" class="submitGuess" >Submit</button>
-      <div type="text" id="result" class="result" placeholder=""></div>
-  </div>
-
         </div>
       </div>
+      
       <div id="container2">
-        <div id="word" class="larg-font"></div>
-        <input type="text" id="input" placeholder="Unscramble here...">
-        <button id="hint">Hint</button>
-
+        <!-- <div id="word" class="larg-font"></div> -->
+        <!-- <input type="text" id="input" placeholder="Unscramble here..."> -->
+        <!-- <button id="hint">Hint</button>
         <div id="message"></div>
         <button id="submit">Submit</button>
-        <button id="output">Give up!?</button>
+        <button id="output">Give up!?</button> -->
       </div>
     </section>
-
-
     <script src="./script_easy.js"></script>
-
 </body>
 
 </html>
