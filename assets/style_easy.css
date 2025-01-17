@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgb(237, 245,249) 63%);
+  background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgb(237, 245, 249) 63%);
 }
 
 header {
@@ -20,10 +20,10 @@ header {
   background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgb(237, 245, 249) 80%);
   color: black;
   border-bottom: 10px lightgray;
-
 }
+
 /* creates a card with: yellow-to-brown gradient background; Rounded corners; subtle border; A shadow; Centered positioning; Internal spacing */
-.card { 
+.card {
   background: radial-gradient(circle, rgb(140, 177, 240) 0%, rgba(187, 124, 33, 0.6) 100%);
   border: 1px solid #eceff1;
   border-radius: 8px;
@@ -34,8 +34,8 @@ header {
 }
 
 .card.results {
- padding: 15px;
-margin-top: 15px;
+  padding: 15px;
+  margin-top: 15px;
 }
 
 .timer {

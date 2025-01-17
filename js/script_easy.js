@@ -1,6 +1,6 @@
 const easyEl = document.querySelector('easy');
 const timerEl = document.querySelector('.timer-count');
-var timeLeft = 
+
 
 const handleGuess = function (event) {
     event.preventDefault();
