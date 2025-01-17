@@ -16,33 +16,31 @@
   <section>
     <div class="container">
       <h1 class="welcome"></h1>
-        <h2 id="countdown"></h2>
-        <p id="main"></p>  
+      <h2 id="countdown"></h2>
+      <p id="main"></p>
     </div>
-      
-     <div id="container2">
-        <h1>LEVEL: EASY</h1>
-          <div id="word"></div>
-            <input type="text" id="guessField" class ="guessField" placeholder="Unscramble here!"/>
-            <button id="hint" >Hint</button>
-        
+    
+    <div class="card results">
+    <!-- <div id="container2"> -->
+      <h1>LEVEL: EASY</h1>
+      <div id="word"></div>
+      <input type="text" id="guessField" class="guessField" placeholder="Unscramble here!" />
       <div id="message"></div>
-         <button input type="submit" value="Submit" id="submitGuess" class="submitGuess" >Submit</button>
+      <button input type="submit" value="Submit" id="submitGuess" class="submitGuess">Submit</button>
+      <button id="hint">Hint</button>
       <div type="text" id="result" class="result" placeholder=""></div>
-  </div>
-      
-      <div class="card results">
-        <div class="win-loss-container">
-          <div>
-            <h2>Wins: <span class="win">0 </span> </h2>
-            <h2>Losses: <span class="lose">0</span></h2>
-          </div>
+    <!-- </div> -->
 
-    </section>
+      <div class="win-loss-container">
+        <div>
+          <h2>Wins: <span class="win">0 </span> </h2>
+          <h2>Losses: <span class="lose">0</span></h2>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-    <script src="./script_easy.js"></script>
-
+  <script src="./script_easy.js"></script>
 </body>
 
 </html>
