@@ -55,8 +55,6 @@ const handleGuess = function (event) {
         }, 1000);
     }
 
-    shuffle(easyWords[0]);
-    countdown();
 
     function check() {
         let input = document.getElementById("input");
