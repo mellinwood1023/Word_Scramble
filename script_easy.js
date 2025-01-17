@@ -4,6 +4,11 @@ const word = [
     "Quick",
     "Juice",
     "Crazy",
+    "Stark",
+    "Joist",
+    "Blink",
+    "Truck",
+    "Point",
 ];
 
 const hint = [
@@ -12,6 +17,11 @@ const hint = [
     "Not slow",
     "Orange",
     "Wild",
+    "White",
+    "Beam",
+    "Eyes",
+    "Vehicle",
+    "Sharp",
 ];
 
 let displayWord = "";
@@ -32,12 +42,17 @@ function shuffle(str) {
 
 const timerEl = document.getElementById('countdown');
 const mainEl = document.getElementById('main');
+const wins = document.querySelector('.win');
+const lose = document.querySelector('.lose');
 
+let timeInterval;
+let timeLeft = 30;
 
-function countdown() {
-    let timeLeft = 60;
-  
-    const timeInterval = setInterval(function () {
+function startTimer() {
+  clearInterval(timeInterval);
+  timeLeft = 30;
+  timeInterval = setInterval(function () {
+     
       if (timeLeft > 1) {
         timerEl.textContent = timeLeft + '  seconds left';
         timeLeft--;
@@ -48,22 +63,27 @@ function countdown() {
         timerEl.textContent = '';
         clearInterval(timeInterval);
         alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
+        refresh();
       }
+      
     }, 1000);
-  
-  }
-countdown(); 
+}
+startTimer();
+
+
+
+//function countdown() {
+//  }
+//countdown(); 
 
 
 function refresh() { 
-    index = Math.floor(Math.random() * 5); 
+    index = Math.floor(Math.random() * 10); 
     displayWord = word[index].toLocaleLowerCase(); 
     displayHint = hint[index]; 
-    scrambleWord =  
-        document.getElementById("word"); 
+    scrambleWord = document.getElementById("word"); 
     console.log(displayWord)
-    scrambleWord.innerText = 
-        shuffle(displayWord).toUpperCase(); 
+    scrambleWord.innerText = shuffle(displayWord).toUpperCase(); 
 } 
 refresh();
 
@@ -73,13 +93,12 @@ function checkGuess() {
         result.textContent= `Correct!`;
         result.style.backgroundColor = "green";
         console.log('Correct!');
+        startTimer();
         refresh();
-        
-    } else {
+      } else {
         result.textContent = `Try again`;
         result.style.backgroundColor = "red";
         console.log('Try again');
-    }
-    
+      }
 } 
 submitGuess.addEventListener("click", checkGuess);
