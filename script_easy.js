@@ -63,6 +63,7 @@ function startTimer() {
         timerEl.textContent = '';
         clearInterval(timeInterval);
         alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
+        startTimer();
         refresh();
       }
       

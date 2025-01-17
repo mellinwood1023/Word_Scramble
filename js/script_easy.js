@@ -1,4 +1,6 @@
 const easyEl = document.querySelector('easy');
+const timerEl = document.querySelector('.timer-count');
+
 
 const handleGuess = function (event) {
     event.preventDefault();
@@ -25,8 +27,7 @@ const handleGuess = function (event) {
         strArray = Array.from(str.toLowerCase());
 
         for (let i = 0; i < strArray.length - 1; ++i) {
-            let j = Math.floor(Math.random() * strArray.length);
-            // Implements the Fisher - Yates shuffle algorithm, though there's a small issue in the implementation - it should use strArray.length - i instead of strArray.length in the random number generation for a more uniform shuffle.
+            let j = Math.floor(Math.random() * strArray.length-1);
             let temp = strArray[i];
             strArray[i] = strArray[j];
             strArray[j] = temp;
@@ -54,8 +55,8 @@ const handleGuess = function (event) {
         }, 1000);
     }
 
-
     shuffle(easyWords[0]);
+    countdown();
 
     function check() {
         let input = document.getElementById("input");
@@ -83,5 +84,4 @@ const handleGuess = function (event) {
   
     refresh();
 };
-
 easyEl.addEventListener('submit', handleGuess);
