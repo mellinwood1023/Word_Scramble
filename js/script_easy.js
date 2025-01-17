@@ -27,7 +27,7 @@ const handleGuess = function (event) {
         strArray = Array.from(str.toLowerCase());
 
         for (let i = 0; i < strArray.length - 1; ++i) {
-            let j = Math.floor(Math.random() * strArray.length-1);
+            let j = Math.floor(Math.random() * strArray.length - 1);
             let temp = strArray[i];
             strArray[i] = strArray[j];
             strArray[j] = temp;
@@ -39,7 +39,7 @@ const handleGuess = function (event) {
 
     function countdown() {
         let timeLeft = 60;
-  
+
         const timeInterval = setInterval(function () {
             if (timeLeft > 1) {
                 timerEl.textContent = timeLeft + 'Time left:';
@@ -81,7 +81,7 @@ const handleGuess = function (event) {
         hint.innerHTML = "Hint:" + displayHint;
         document.getElementById("output").innerText = "Result:";
     }
-  
+
     refresh();
 };
 easyEl.addEventListener('submit', handleGuess);
