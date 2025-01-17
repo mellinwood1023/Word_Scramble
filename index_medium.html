@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Word Scramble Game</title>
+  <link rel="stylesheet" href="./assets/style_medium.css">
+</head>
+
+<body>
+  <header>
+    <h1>WELCOME TO WOrDsCrAmBLe</h1>
+  </header>
+  <section>
+    <div class="container">
+      <h1 class="welcome"></h1>
+      <h2 id="countdown"></h2>
+      <p id="main"></p>
+    </div>
+    
+    <div class="card results">
+    <!-- <div id="container2"> -->
+      <h1>LEVEL: MEDIUM</h1>
+      <div id="word"></div>
+      <input type="text" id="guessField" class="guessField" placeholder="Unscramble here!" />
+      <div id="message"></div>
+      <button input type="submit" value="Submit" id="submitGuess" class="submitGuess">Submit</button>
+      <button id="hint">Hint</button>
+      <div type="text" id="result" class="result" placeholder=""></div>
+    <!-- </div> -->
+
+      <div class="win-loss-container">
+        <div>
+          <h2>Wins: <span class="win">0 </span> </h2>
+          <h2>Losses: <span class="lose">0</span></h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./script_medium.js"></script>
+</body>
+
+</html>
