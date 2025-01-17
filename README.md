@@ -26,6 +26,7 @@ Our User Story - As a lover of word-related games, I want to play a word scrambl
     Medium: 6-7 letter words.
     Hard: 8+ letter words.
     **Timer**: Solve each word within a time limit. Time is subtracted within each difficulty level. 
+    **Hints**: When needed of assistance to guess word, click hint button.
 
 ## How to Play
 Sign in username and pick challenge level.

@@ -95,11 +95,16 @@ function checkGuess() {
         result.style.backgroundColor = "green";
         console.log('Correct!');
         startTimer();
-        refresh();
+        refresh(); 
+         // Fireworks display
+    const container = document.getElementById('fireworks-container');
+    const fireworks = new Fireworks(container, { /* options */ });
+    fireworks.start();
       } else {
         result.textContent = `Try again`;
         result.style.backgroundColor = "red";
         console.log('Try again');
       }
+   
 } 
 submitGuess.addEventListener("click", checkGuess);
