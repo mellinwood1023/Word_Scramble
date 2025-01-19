@@ -31,7 +31,9 @@ Our User Story - As a lover of word-related games, I want to play a word scrambl
 ## How to Play
 Sign in username and pick challenge level.
 
-
+## Visuals 
+Screenshot 2025-01-18 at 8.08.15 PM
+Screenshot 2025-01-18 at 8.07.36 PM
 
 # Foobar
 
