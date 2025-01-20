@@ -36,6 +36,7 @@ header {
 .card.results {
   padding: 15px;
   margin-top: 15px;
+  min-width: 350px;
 }
 
 .timer {
@@ -162,4 +163,26 @@ button {
   background: #13293d;
   color: #fff;
   text-align: center;
+}
+@media screen and (max-width: 720px) {
+  .large-font {
+    font-size: 2em;
+  }
+#word {
+  font-size: 40px;
+  height: 20px;
+  line-height: 8px;
+  margin-top: -10px;
+  padding: 50px;
+}
+
+  button #back{
+    font-size: 10px;
+    width: 20ox;
+
+  }
+
+  .timer {
+    height: 200px;
+  }
 }
