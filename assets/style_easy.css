@@ -122,8 +122,9 @@ header {
   line-height: 8px;
   margin-top: -10px;
   padding: 50px;
-  text-align: center;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -135,7 +136,7 @@ button {
   letter-spacing: 0.21px;
   line-height: 16px;
   max-width: 255px;
-  padding: 20px 40px;
+  padding: 10px 30px;
   text-align: center;
   transition-duration: 0.15s;
   transition-property: background-color;
@@ -185,24 +186,9 @@ button {
   button #back {
     font-size: 10px;
     width: 20ox;
-
   }
 
   .timer {
     height: 200px;
-  }
-
-  /* For tablets */
-  @media screen and (max-width: 1630px) {
-    .card {
-      min-height: 600px;
-    }
-  }
-
-  /* For mobile phones */
-  @media screen and (max-width: 480px) {
-    .card {
-      min-height: 600px;
-    }
   }
 }

@@ -114,25 +114,6 @@ function checkGuess() {
 }
 submitGuess.addEventListener("click", checkGuess);
 
-
-// if (timeLeft > 1) {
-//   timerEl.textContent = timeLeft + '  seconds left';
-//   timeLeft--;
-// } else if (timeLeft === 1) {
-//   timerEl.textContent = timeLeft + '  seconds left';
-//   timeLeft--;
-// } else {
-//   timerEl.textContent = '';
-//   clearInterval(timeInterval);
-//   alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
-//   startTimer();
-//   refresh();
-// }
-      
-//     }, 1000);
-// }
-// startTimer();
-
 function refresh() {
   index = Math.floor(Math.random() * 10);
   displayWord = word[index].toLocaleLowerCase();
