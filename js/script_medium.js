@@ -87,10 +87,6 @@ startTimer();
 
 
 
-//function countdown() {
-//  }
-//countdown(); 
-
 
 function refresh() { 
     index = Math.floor(Math.random() * 10); 
@@ -105,15 +101,18 @@ refresh();
 function checkGuess() { 
     const userGuess = document.getElementById("guessField").value.toLowerCase();
     if (userGuess === displayWord) {
-        result.textContent= `Correct!`;
-        result.style.backgroundColor = "green";
-        console.log('Correct!');
-        startTimer();
-        refresh();
-      } else {
-        result.textContent = `Try again`;
-        result.style.backgroundColor = "red";
-        console.log('Try again');
-      }
-} 
+      result.textContent= `Correct!`;
+      result.style.backgroundColor = "green";
+      guessField.value = '';
+      alert(`You got it! The word was '${displayWord.toUpperCase()}'`)
+      console.log('Correct!'); 
+      startTimer();
+      refresh();
+    } else {
+      guessField.value = '';
+      result.textContent = `Try again`;
+      result.style.backgroundColor = "red";
+      console.log('Try again');
+    }
+}  
 submitGuess.addEventListener("click", checkGuess);
