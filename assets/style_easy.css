@@ -195,14 +195,14 @@ button {
   /* For tablets */
   @media screen and (max-width: 1630px) {
     .card {
-      min-height: 700px;
+      min-height: 600px;
     }
   }
 
   /* For mobile phones */
   @media screen and (max-width: 480px) {
     .card {
-      min-height: 700px;
+      min-height: 600px;
     }
   }
 }

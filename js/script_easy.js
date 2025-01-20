@@ -27,16 +27,16 @@ const word = [
 
 
 const hints = [
-    "Flying",
-    "American Symbol",
-    "Not slow",
-    "Orange",
-    "Wild",
-    "White",
-    "Beam",
-    "Eyes",
-    "Vehicle",
-    "Sharp",
+  "Flying",
+  "American Symbol",
+  "Not slow",
+  "Orange",
+  "Wild",
+  "White",
+  "Beam",
+  "Eyes",
+  "Vehicle",
+  "Sharp",
 ];
 
 let displayWord = "";
@@ -114,53 +114,53 @@ function checkGuess() {
 }
 submitGuess.addEventListener("click", checkGuess);
 
-     
-      if (timeLeft > 1) {
-        timerEl.textContent = timeLeft + '  seconds left';
-        timeLeft--;
-      } else if (timeLeft === 1) {
-        timerEl.textContent = timeLeft + '  seconds left';
-        timeLeft--;
-      } else {
-        timerEl.textContent = '';
-        clearInterval(timeInterval);
-        alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
-        startTimer();
-        refresh();
-      }
-      
-    }, 1000);
-}
-startTimer();
 
-function refresh() { 
-    index = Math.floor(Math.random() * 10); 
-    displayWord = word[index].toLocaleLowerCase(); 
-    displayHint = hint[index]; 
-    scrambleWord = document.getElementById("word"); 
-    console.log(displayWord)
-    scrambleWord.innerText = shuffle(displayWord).toUpperCase(); 
-} 
+// if (timeLeft > 1) {
+//   timerEl.textContent = timeLeft + '  seconds left';
+//   timeLeft--;
+// } else if (timeLeft === 1) {
+//   timerEl.textContent = timeLeft + '  seconds left';
+//   timeLeft--;
+// } else {
+//   timerEl.textContent = '';
+//   clearInterval(timeInterval);
+//   alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
+//   startTimer();
+//   refresh();
+// }
+      
+//     }, 1000);
+// }
+// startTimer();
+
+function refresh() {
+  index = Math.floor(Math.random() * 10);
+  displayWord = word[index].toLocaleLowerCase();
+  displayHint = hint[index];
+  scrambleWord = document.getElementById("word");
+  console.log(displayWord)
+  scrambleWord.innerText = shuffle(displayWord).toUpperCase();
+}
 refresh();
 
-function checkGuess() { 
-    const userGuess = document.getElementById("guessField").value.toLowerCase();
-   
-    if (userGuess === displayWord) {
-        result.textContent= `Correct!`;
-        result.style.backgroundColor = "green";
-        guessField.value = '';
-        alert(`You got it! The word was '${displayWord.toUpperCase()}'`)
-        console.log('Correct!'); 
-        startTimer();
-        refresh();
-      } else {
-        guessField.value = '';
-        result.textContent = `Try again`;
-        result.style.backgroundColor = "red";
-        console.log('Try again');
-      }
-}  
+function checkGuess() {
+  const userGuess = document.getElementById("guessField").value.toLowerCase();
+
+  if (userGuess === displayWord) {
+    result.textContent = `Correct!`;
+    result.style.backgroundColor = "green";
+    guessField.value = '';
+    alert(`You got it! The word was '${displayWord.toUpperCase()}'`)
+    console.log('Correct!');
+    startTimer();
+    refresh();
+  } else {
+    guessField.value = '';
+    result.textContent = `Try again`;
+    result.style.backgroundColor = "red";
+    console.log('Try again');
+  }
+}
 
 submitGuess.addEventListener("click", checkGuess);
 
