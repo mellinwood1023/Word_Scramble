@@ -1,3 +1,17 @@
+const backBtnEl = document.querySelector('#back');
+
+// Add error handling and prevent default behavior
+backBtnEl?.addEventListener('click', (event) => {
+  event.preventDefault();
+  try {
+    redirectPage('index.html');
+  } catch (error) {
+    console.error('Navigation error:', error);
+    // Fallback navigation if redirectPage fails
+    window.location.href = 'index.html';
+  }
+});
+
 const word = [
     "Ability",
     "College",
