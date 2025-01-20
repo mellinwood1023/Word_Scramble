@@ -102,4 +102,16 @@ function checkGuess() {
         console.log('Try again');
       }
 } 
-submitGuess.addEventListener("click", checkGuess);
+    // Example of updating scores
+
+    const winSpan = document.querySelector('.win');
+    const loseSpan = document.querySelector('.lose');
+    
+    function updateScore(isWin) {
+        if (isWin) {
+            winSpan.textContent = parseInt(winSpan.textContent) + 1;
+            // Trigger fireworks
+        } else {
+            loseSpan.textContent = parseInt(loseSpan.textContent) + 1;
+        }
+submitGuess.addEventListener("click", checkGuess)};
