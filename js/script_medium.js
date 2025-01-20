@@ -102,3 +102,4 @@ function checkGuess() {
     }
 }  
 submitGuess.addEventListener("click", checkGuess);
+

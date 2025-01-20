@@ -99,7 +99,6 @@ function checkGuess() {
         console.log('Try again');
       }
 }  
-
 submitGuess.addEventListener("click", checkGuess);
 
 
