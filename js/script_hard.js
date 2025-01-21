@@ -1,3 +1,18 @@
+
+const backBtnEl = document.querySelector('#back');
+
+// Add error handling and prevent default behavior
+backBtnEl?.addEventListener('click', (event) => {
+  event.preventDefault();
+  try {
+    redirectPage('index.html');
+  } catch (error) {
+    console.error('Navigation error:', error);
+    // Fallback navigation if redirectPage fails
+    window.location.href = 'index.html';
+  }
+});
+
 const word = [
     "Abandoned",
     "Jackknife",
@@ -46,7 +61,7 @@ const wins = document.querySelector('.win');
 const lose = document.querySelector('.lose');
 
 let timeInterval;
-let timeLeft = 60;
+let timeLeft = 100;
 
 function startTimer() {
   clearInterval(timeInterval);
@@ -71,13 +86,6 @@ function startTimer() {
 }
 startTimer();
 
-
-
-//function countdown() {
-//  }
-//countdown(); 
-
-
 function refresh() { 
     index = Math.floor(Math.random() * 10); 
     displayWord = word[index].toLocaleLowerCase(); 
@@ -91,6 +99,7 @@ function refresh() {
      // Reset the hint button text
      const userHint = document.getElementById("hint");
      userHint.innerText = "Hint";
+
 } 
 refresh();
 
@@ -103,6 +112,7 @@ function checkGuess() {
         startTimer();
         refresh();
       } else {
+        guessField.value ='';
         result.textContent = `Try again`;
         result.style.backgroundColor = "red";
         console.log('Try again');
@@ -119,3 +129,6 @@ function checkHint() {
 }
 
 document.getElementById("hint").addEventListener("click", checkHint);
+      
+
+

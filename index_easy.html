@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Word Scramble Game</title>
   <link rel="stylesheet" href="./assets/style_easy.css">
+  <script defer src=".js/script_easy.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -19,14 +20,17 @@
       <h2 id="countdown"></h2>
       <p id="main"></p>
     </div>
-    
+
     <div class="card results">
       <h1>LEVEL: EASY</h1>
+      <nav>
+        <a id="back">⬅ Back Home</a>
+      </nav>
       <div id="word"></div>
-      <input type="text" id="guessField" class="guessField" placeholder="Unscramble here!" />
+       <input type="text" id="guessField" class="guessField" placeholder="Unscramble here!" />
       <div id="message"></div>
-      <button input type="submit" value="Submit" id="submitGuess" class="submitGuess">Submit</button>
-      <button id="hint">Hint</button>
+        <button type="submit" value="Submit" id="submitGuess" class="submitGuess" >Submit</button>
+        <button type = "text" id="hint" class = "hint" >Hint</button>
       <div type="text" id="result" class="result" placeholder=""></div>
       <div class="win-loss-container">
         <div>
@@ -35,9 +39,9 @@
         </div>
       </div>
     </div>
-
   
   </section>
+
   <script src="./js/script_easy.js"></script>
 </body>
 
