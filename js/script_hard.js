@@ -114,7 +114,6 @@ submitGuess.addEventListener("click", checkGuess);
 function checkHint() {
   const userHint = document.getElementById("hint");
   if (userHint.innerText === "Hint") {
-      // Display the hint in the DOM element
       alert(displayHint); // Display the hint in an alert dialog
   }
 }
