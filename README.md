@@ -16,7 +16,7 @@ Challenge users with scrambled (jumbled) words, and their task is to decode the 
 
 
 # User Story
-Our User Story - As a lover of word-related games, I want to play a word scramble game to challenge and expand my vocabulary skills and enhance cognitive skills like pattern recognition and problem-solving.
+Our User Story - As a lover of word-related games, I want to play a word scramble game to challenge and expand my vocabulary skills, enhance cognitive skills like pattern recognition and problem-solving.
 
 ## Features
 
@@ -59,7 +59,7 @@ John Brown (Instructor), and Jonathan Pfluger (PA)
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change
 
-# Authors & acknowledgement
+# Authors & acknowledgment
 Matt Mullenn (@MMullen4), Maggie Ellinwood (@mellinwood1023), Raven Hunter(@rhunter27), and Ruben Alston (@raabaja718) 
 
 ## License
