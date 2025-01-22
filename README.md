@@ -29,30 +29,17 @@ Our User Story - As a lover of word-related games, I want to play a word scrambl
     **Hints**: When needed of assistance to guess word, click hint button.
 
 ## How to Play
-Sign in username and pick challenge level.
+Pick challenge level and click start play. Player has 60 seconds to figure out the scrambled word.  Player may use a hint to help solve the puzzle. 
 
 ## Visuals 
-![Game Screenshot](./assets/Screenshot 2025-01-18 at 8.07.36 PM.png)
-
-
-# Foobar
-
-Foobar is a Python library for dealing with word pluralization.
+![Alt text](<Screenshot 2025-01-21 at 6.57.43 PM.png>)
+![Alt text](<Screenshot 2025-01-21 at 6.59.54 PM.png>)
 
 ## Installation
+N/A
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
-#
-## Usage
-
-# Support
+## Support
 Contact: Matt Mullenn (@MMullen4), Maggie Ellinwood (@mellinwood1023), Raven Hunter(@rhunter27), and Ruben Alston (@raabaja718) for any questions, concerns, or let us know how you're enjoying our game!
-
-
 
 # Contributions
 John Brown (Instructor), and Jonathan Pfluger (PA)
@@ -68,16 +55,6 @@ Matt Mullenn (@MMullen4), Maggie Ellinwood (@mellinwood1023), Raven Hunter(@rhun
 
 ## Project
 
+https://github.com/MMullen4/Word_Scramble
 
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+https://mmullen4.github.io/Word_Scramble/

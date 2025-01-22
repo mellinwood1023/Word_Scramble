@@ -115,6 +115,9 @@ function checkGuess() {
     guessField.value = '';
     alert(`You got it! The word was '${displayWord.toUpperCase()}'`)
     console.log('Correct!');
+    winCounter++
+    win.textContent = winCounter;
+    setWins();
     startTimer();
     refresh();
   } else {
@@ -122,6 +125,8 @@ function checkGuess() {
     result.textContent = `Try again`;
     result.style.backgroundColor = "red";
     console.log('Try again');
+    loseCounter++
+    lose.textContent = loseCounter;
   }
 }
 
@@ -134,3 +139,12 @@ function checkHint() {
   }
 }
   document.getElementById("hint").addEventListener("click", checkHint);
+
+  function setWins() {
+    wins.textContent = winCounter;
+    localStorage.setItem("winCount", winCounter);
+  }
+  function setLosses() {
+    lose.textContent = loseCounter;
+    localStorage.setItem("loseCount", loseCounter);
+  }
