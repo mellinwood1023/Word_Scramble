@@ -1,4 +1,3 @@
-
 const backBtnEl = document.querySelector('#back');
 
 // Add error handling and prevent default behavior
