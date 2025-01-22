@@ -4,6 +4,13 @@ const dropdownItems = document.querySelectorAll('.dropdown-item');
 const dropdownButton = document.getElementById('difficultyButton');
 // let currentDifficulty = 'easy'; // default value
 
+let redirectURL = ''; // variable to store url
+
+const redirectPage = function (url) { // 
+    redirectURL = url; // stores url in variable
+    location.assign(url); // navs to the new page
+};
+
 // Add click event listener to each dropdown item
 dropdownItems.forEach(item => {
     item.addEventListener('click', function (e) {

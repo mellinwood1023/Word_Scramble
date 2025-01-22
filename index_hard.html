@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Word Scramble Game</title>
-  <link rel="stylesheet" href="./assets/style_easy.css">
-  <script defer src=".js/script_easy.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="./assets/style_hard.css">
 </head>
 
 <body>
@@ -20,34 +19,21 @@
       <h2 id="countdown"></h2>
       <p id="main"></p>
     </div>
-
+    
     <div class="card results">
-      <h1>LEVEL: EASY</h1>
+    <!-- <div id="container2"> -->
+      <h1>LEVEL: DIFFICULT</h1>
       <nav>
         <a id="back">⬅ Back Home</a>
       </nav>
       <div id="word"></div>
-       <input type="text" id="guessField" class="guessField" placeholder="Unscramble here!" />
+        <input type="text" id="guessField" class="guessField" placeholder="Unscramble here!" />
       <div id="message"></div>
-        <button type="submit" value="Submit" id="submitGuess" class="submitGuess" >Submit</button>
-        <button type = "text" id="hint" class = "hint" >Hint</button>
+        <button input type="submit" value="Submit" id="submitGuess" class="submitGuess">Submit</button>
+        <button id="hint">Hint</button>
       <div type="text" id="result" class="result" placeholder=""></div>
-<<<<<<< HEAD
-  </div>
-      
-      <div class="card results">
-        <div class="win-loss-container">
-          <div>
-            <h2>Wins: <span id="win">0</span></h2>
-            <h2>Losses: <span id="lose">0</span></h2> 
+    <!-- </div> -->
 
-          </div>
-
-    </section>
-
-
-    <script src="./script_easy.js"></script>
-=======
       <div class="win-loss-container">
         <div>
           <h2>Wins: <span class="win">0 </span> </h2>
@@ -56,9 +42,8 @@
       </div>
     </div>
   </section>
->>>>>>> 5ee14f389b38036215d1970286058ded8059c626
 
-  <script src="./js/script_easy.js"></script>
+  <script src="./js/script_hard.js"></script>
 </body>
 
 </html>
