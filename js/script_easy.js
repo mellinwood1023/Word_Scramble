@@ -28,9 +28,9 @@ const word = [
 
 
 const hint = [
-  "Flying",
   "American Symbol",
   "Not slow",
+  "Flying",
   "Orange",
   "Wild",
   "White",
