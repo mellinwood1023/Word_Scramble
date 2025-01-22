@@ -1,20 +1,36 @@
+
+const backBtnEl = document.querySelector('#back');
+
+// Add error handling and prevent default behavior
+backBtnEl?.addEventListener('click', (event) => {
+  event.preventDefault();
+  try {
+    redirectPage('index.html');
+  } catch (error) {
+    console.error('Navigation error:', error);
+    // Fallback navigation if redirectPage fails
+    window.location.href = 'index.html';
+  }
+});
+
 const word = [
-    "Pilot",
-    "Eagle",
-    "Quick",
-    "Juice",
-    "Crazy",
-    "Stark",
-    "Joist",
-    "Blink",
-    "Truck",
-    "Point",
+  "Eagle",
+  "Quick",
+  "Pilot",
+  "Juice",
+  "Crazy",
+  "Stark",
+  "Joist",
+  "Blink",
+  "Truck",
+  "Point",
 ];
 
-const hints = [
-    "Flying",
+
+const hint = [
     "American Symbol",
-    "Not slow",
+    "Not Slow",
+    "Flying",
     "Orange",
     "Wild",
     "White",
@@ -25,6 +41,8 @@ const hints = [
 ];
 
 let displayWord = "";
+
+let displayHint = "";
 
 function shuffle(str) {
     strArray = Array.from(str.toLowerCase());
@@ -42,8 +60,6 @@ function shuffle(str) {
 
 const timerEl = document.getElementById('countdown');
 const mainEl = document.getElementById('main');
-const wins = document.querySelector('.win');
-const lose = document.querySelector('.lose');
 
 let timeInterval;
 let timeLeft = 60;
@@ -52,44 +68,51 @@ function startTimer() {
   clearInterval(timeInterval);
   timeLeft = 60;
   timeInterval = setInterval(function () {
-     
-      if (timeLeft > 1) {
-        timerEl.textContent = timeLeft + '  seconds left';
-        timeLeft--;
-      } else if (timeLeft === 1) {
-        timerEl.textContent = timeLeft + '  seconds left';
-        timeLeft--;
-      } else {
-        timerEl.textContent = '';
-        clearInterval(timeInterval);
-        alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
-        startTimer();
-        refresh();
-      }
-      
-    }, 1000);
+
+
+    if (timeLeft > 1) {
+      timerEl.textContent = timeLeft + '  seconds left';
+      timeLeft--;
+    } else if (timeLeft === 1) {
+      timerEl.textContent = timeLeft + '  seconds left';
+      timeLeft--;
+    } else {
+      timerEl.textContent = '';
+      clearInterval(timeInterval);
+      alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
+      handleLoss();
+      startTimer();
+      refresh();
+    }
+
+  }, 1000);
 }
 startTimer();
 
 function refresh() { 
-    index = Math.floor(Math.random() * 10); 
+    let index = Math.floor(Math.random() * 10); 
     displayWord = word[index].toLocaleLowerCase(); 
     displayHint = hint[index]; 
-    scrambleWord = document.getElementById("word"); 
+    let scrambleWord = document.getElementById("word"); 
     console.log(displayWord)
     scrambleWord.innerText = shuffle(displayWord).toUpperCase(); 
+
+     // Reset the hint button text
+     const userHint = document.getElementById("hint");
+     userHint.innerText = "Hint";
+
 } 
 refresh();
 
 function checkGuess() { 
     const userGuess = document.getElementById("guessField").value.toLowerCase();
-   
     if (userGuess === displayWord) {
         result.textContent= `Correct!`;
         result.style.backgroundColor = "green";
         guessField.value = '';
-        alert(`You got it! The word was '${displayWord.toUpperCase()}'`)
-        console.log('Correct!'); 
+    alert(`You got it! The word was '${displayWord.toUpperCase()}'`)      
+        console.log('Correct!');
+        handleWin();
         startTimer();
         refresh();
       } else {
@@ -97,8 +120,16 @@ function checkGuess() {
         result.textContent = `Try again`;
         result.style.backgroundColor = "red";
         console.log('Try again');
+        
       }
-}  
+} 
 submitGuess.addEventListener("click", checkGuess);
 
+function checkHint() {
+  const userHint = document.getElementById("hint");
+  if (userHint.innerText === "Hint") {
+      alert(displayHint); // Display the hint in an alert dialog
+  }
+}
 
+document.getElementById("hint").addEventListener("click", checkHint);
