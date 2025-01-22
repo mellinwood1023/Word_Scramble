@@ -32,8 +32,8 @@ Our User Story - As a lover of word-related games, I want to play a word scrambl
 Pick challenge level and click start play. Player has 60 seconds to figure out the scrambled word.  Player may use a hint to help solve the puzzle. 
 
 ## Visuals 
-![Alt text](<Screenshot 2025-01-21 at 6.57.43 PM.png>)
-![Alt text](<Screenshot 2025-01-21 at 6.59.54 PM.png>)
+![Alt text](<./assets/Screenshot 2025-01-21 at 6.57.43 PM.png>)
+![Alt text](<./assets/Screenshot 2025-01-21 at 6.59.54 PM.png>)
 
 ## Installation
 N/A

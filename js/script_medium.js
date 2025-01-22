@@ -1,16 +1,9 @@
-
 const backBtnEl = document.querySelector('#back');
 
 // Add error handling and prevent default behavior
 backBtnEl?.addEventListener('click', (event) => {
   event.preventDefault();
-  try {
-    redirectPage('index.html');
-  } catch (error) {
-    console.error('Navigation error:', error);
-    // Fallback navigation if redirectPage fails
-    window.location.href = 'index.html';
-  }
+  window.location.href = 'index.html';
 });
 
 const word = [
@@ -57,17 +50,14 @@ function shuffle(str) {
 
 const timerEl = document.getElementById('countdown');
 const mainEl = document.getElementById('main');
-const wins = document.querySelector('.win');
-const lose = document.querySelector('.lose');
 
 let timeInterval;
-let timeLeft = 60;
+let timeLeft = 45;
 
 function startTimer() {
   clearInterval(timeInterval);
-  timeLeft = 60;
+  timeLeft = 45;
   timeInterval = setInterval(function () {
-
     if (timeLeft > 1) {
       timerEl.textContent = timeLeft + '  seconds left';
       timeLeft--;
@@ -78,6 +68,7 @@ function startTimer() {
       timerEl.textContent = '';
       clearInterval(timeInterval);
       alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
+      handleLoss();
       startTimer();
       refresh();
     }
@@ -85,6 +76,36 @@ function startTimer() {
   }, 1000);
 }
 startTimer();
+
+// init wins from local storage or start @ 0
+let wins = parseInt(localStorage.getItem('wins')) || 0;
+let losses = parseInt(localStorage.getItem('losses')) || 0;
+
+// update display when page loads
+document.getElementById('win').textContent = wins;
+document.getElementById('lose').textContent = losses;
+
+function handleWin() { // update wins in local storage
+  wins++;
+  document.getElementById('win').textContent = wins;
+  localStorage.setItem('wins', wins);
+}
+
+function handleLoss() { // update loss in local storage
+  losses++;
+  document.getElementById('lose').textContent = losses;
+  localStorage.setItem('losses', losses);
+}
+
+// reset scores
+function resetScores() {
+  wins = 0;
+  losses = 0;
+  document.getElementById('win').textContent = wins;
+  document.getElementById('lose').textContent = losses;
+  localStorage.setItem('wins', wins);
+  localStorage.setItem('losses', losses);
+}
 
 function refresh() {
   index = Math.floor(Math.random() * 10);
@@ -106,8 +127,9 @@ function checkGuess() {
     result.textContent = `Correct!`;
     result.style.backgroundColor = "green";
     guessField.value = '';
-    alert(`You got it! The word was '${displayWord.toUpperCase()}'`)
+    // alert(`You got it! The word was '${displayWord.toUpperCase()}'`)
     console.log('Correct!');
+    handleWin();
     startTimer();
     refresh();
   } else {
@@ -127,4 +149,4 @@ function checkHint() {
 }
 
 document.getElementById("hint").addEventListener("click", checkHint);
-
+document.getElementById("reset").addEventListener("click", resetScores);
