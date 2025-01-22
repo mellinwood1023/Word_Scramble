@@ -1,4 +1,4 @@
-* {
+*{
   margin: 2px;
   padding: 0;
   box-sizing: border-box;
@@ -31,6 +31,8 @@ header {
     rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
   margin: auto;
   padding: 10px;
+  height: auto;
+  min-height: 300px;
 }
 
 .card.results {
@@ -137,7 +139,7 @@ button {
   letter-spacing: 0.21px;
   line-height: 16px;
   max-width: 255px;
-  padding: 20px 40px;
+  padding: 10px 30px;
   text-align: center;
   transition-duration: 0.15s;
   transition-property: background-color;

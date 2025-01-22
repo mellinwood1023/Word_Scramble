@@ -56,8 +56,6 @@ function shuffle(str) {
 
 const timerEl = document.getElementById('countdown');
 const mainEl = document.getElementById('main');
-const wins = document.querySelector('.win');
-const lose = document.querySelector('.lose');
 
 let timeInterval;
 let timeLeft = 100;
@@ -85,7 +83,6 @@ function startTimer() {
 }
 startTimer();
 
-
 function refresh() { 
     index = Math.floor(Math.random() * 10); 
     displayWord = word[index].toLocaleLowerCase(); 
@@ -93,6 +90,13 @@ function refresh() {
     scrambleWord = document.getElementById("word"); 
     console.log(displayWord)
     scrambleWord.innerText = shuffle(displayWord).toUpperCase(); 
+
+    hintEl = document.getElementById("hint"); 
+
+     // Reset the hint button text
+     const userHint = document.getElementById("hint");
+     userHint.innerText = "Hint";
+
 } 
 refresh();
 
@@ -101,9 +105,9 @@ function checkGuess() {
     if (userGuess === displayWord) {
       result.textContent= `Correct!`;
       result.style.backgroundColor = "green";
-      guessField.value = '';
-      alert(`You got it! The word was '${displayWord.toUpperCase()}'`)
-      console.log('Correct!'); 
+    guessField.value = '';
+  alert(`You got it! The word was '${displayWord.toUpperCase()}'`)      
+      console.log('Correct!');
       startTimer();
       refresh();
     } else {
@@ -112,5 +116,18 @@ function checkGuess() {
       result.style.backgroundColor = "red";
       console.log('Try again');
     }
-}  
+} 
+
 submitGuess.addEventListener("click", checkGuess);
+
+function checkHint() {
+  const userHint = document.getElementById("hint");
+  if (userHint.innerText === "Hint") {
+      alert(displayHint); // Display the hint in an alert dialog
+  }
+}
+
+document.getElementById("hint").addEventListener("click", checkHint);
+      
+
+

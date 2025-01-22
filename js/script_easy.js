@@ -1,3 +1,4 @@
+
 const backBtnEl = document.querySelector('#back');
 
 // Add error handling and prevent default behavior
@@ -12,7 +13,7 @@ backBtnEl?.addEventListener('click', (event) => {
   }
 });
 
-const words = [
+const word = [
   "Eagle",
   "Quick",
   "Pilot",
@@ -25,105 +26,110 @@ const words = [
   "Point",
 ];
 
-const hints = [
-  "Flying",
-  "American Symbol",
-  "Not slow",
-  "Orange",
-  "Wild",
-  "White",
-  "Beam",
-  "Eyes",
-  "Vehicle",
-  "Sharp",
+
+const hint = [
+    "American Symbol",
+    "Not Slow",
+    "Flying",
+    "Orange",
+    "Wild",
+    "White",
+    "Beam",
+    "Eyes",
+    "Vehicle",
+    "Sharp",
 ];
 
 let displayWord = "";
 
+let displayHint = "";
+
 function shuffle(str) {
-  let strArray = Array.from(str.toLowerCase());
+    strArray = Array.from(str.toLowerCase());
 
-  for (let i = 0; i < strArray.length - 1; ++i) {
-    let j = Math.floor(Math.random() * strArray.length);
+    for(let i = 0; i < strArray.length - 1; ++i) {
+        let j = Math.floor(Math.random() * strArray.length);
 
-    let temp = strArray[i];
-    strArray[i] = strArray[j];
-    strArray[j] = temp;
-  }
-  return strArray.join("");
+        let temp = strArray[i];
+        strArray[i] = strArray[j];
+        strArray[j] = temp;
+    }
+    return strArray.join("");
+
 };
 
 const timerEl = document.getElementById('countdown');
 const mainEl = document.getElementById('main');
-const guessField = document.getElementById('guessField');
-const resultEl = document.getElementById('result');
 
-// Initialize win/loss counters
-let winCount = 0;
-let lossCount = 0;
-
-function updateWinLossCounter(isWin) {
-  if (isWin) {
-    winCount++;
-    document.getElementById('win').textContent = winCount;
-  } else {
-    lossCount++;
-    document.getElementById('lose').textContent = lossCount;
-  }
-}
+let timeInterval;
+let timeLeft = 60;
 
 function startTimer() {
   clearInterval(timeInterval);
   timeLeft = 60;
   timeInterval = setInterval(function () {
+
+
     if (timeLeft > 1) {
-      timerEl.textContent = timeLeft + ' seconds left';
+      timerEl.textContent = timeLeft + '  seconds left';
       timeLeft--;
     } else if (timeLeft === 1) {
-      timerEl.textContent = timeLeft + ' second left';
+      timerEl.textContent = timeLeft + '  seconds left';
       timeLeft--;
     } else {
-      timerEl.textContent = `OUT OF TIME! The word was '${displayWord.toLowerCase()}'`;
+      timerEl.textContent = '';
       clearInterval(timeInterval);
-      refresh();
+      alert(`OUT OF TIME! The word was '${displayWord.toLowerCase()}'`);
+      handleLoss();
       startTimer();
+      refresh();
     }
+
   }, 1000);
 }
 startTimer();
 
-function refresh() {
-  let index = Math.floor(Math.random() * words.length);
-  displayWord = words[index].toLowerCase();
-  let displayHint = hints[index];
-  let scrambleWord = document.getElementById("word");
-  console.log(displayWord);
-  scrambleWord.innerText = shuffle(displayWord).toUpperCase();
-  messageEl.textContent = "";  // Clear any previous hint messages
-}
+function refresh() { 
+    let index = Math.floor(Math.random() * 10); 
+    displayWord = word[index].toLocaleLowerCase(); 
+    displayHint = hint[index]; 
+    let scrambleWord = document.getElementById("word"); 
+    console.log(displayWord)
+    scrambleWord.innerText = shuffle(displayWord).toUpperCase(); 
+
+     // Reset the hint button text
+     const userHint = document.getElementById("hint");
+     userHint.innerText = "Hint";
+
+} 
 refresh();
 
-function checkGuess() {
-  const userGuess = guessField.value.toLowerCase();
-  if (userGuess === displayWord) {
-    resultEl.textContent = `Correct!`;
-    resultEl.style.backgroundColor = "green";
-    console.log('Correct!');
-    updateWinLossCounter(true);  // Increment wins
-  } else {
-    resultEl.textContent = `Try again`;
-    resultEl.style.backgroundColor = "red";
-    console.log('Try again');
-    updateWinLossCounter(false);  // Increment losses
+function checkGuess() { 
+    const userGuess = document.getElementById("guessField").value.toLowerCase();
+    if (userGuess === displayWord) {
+        result.textContent= `Correct!`;
+        result.style.backgroundColor = "green";
+        guessField.value = '';
+    alert(`You got it! The word was '${displayWord.toUpperCase()}'`)      
+        console.log('Correct!');
+        handleWin();
+        startTimer();
+        refresh();
+      } else {
+        guessField.value = '';
+        result.textContent = `Try again`;
+        result.style.backgroundColor = "red";
+        console.log('Try again');
+        
+      }
+} 
+submitGuess.addEventListener("click", checkGuess);
+
+function checkHint() {
+  const userHint = document.getElementById("hint");
+  if (userHint.innerText === "Hint") {
+      alert(displayHint); // Display the hint in an alert dialog
   }
-  guessField.value = '';  // Clear the input field
-  startTimer();
-  refresh();  // Start a new round
 }
-document.getElementById("submitGuess").addEventListener("click", checkGuess);
-document.getElementById("hint").addEventListener("click", function() {
-  messageEl.textContent = hints[words.indexOf(displayWord)];
-});
 
-
-
+document.getElementById("hint").addEventListener("click", checkHint);

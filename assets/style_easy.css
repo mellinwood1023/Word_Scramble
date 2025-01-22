@@ -11,15 +11,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgba(237, 245, 249, 1) 63%);
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
+  background: linear-gradient(0deg, rgba(19, 41, 61, 1) 0%, rgb(237, 245, 249) 63%);
 }
 
 header {
@@ -30,6 +22,7 @@ header {
   border-bottom: 10px lightgray;
 }
 
+/* creates a card with: yellow-to-brown gradient background; Rounded corners; subtle border; A shadow; Centered positioning; Internal spacing */
 .card {
   background: radial-gradient(circle, rgb(140, 177, 240) 0%, rgba(187, 124, 33, 0.6) 100%);
   border: 1px solid #eceff1;
@@ -70,22 +63,36 @@ header {
 
 .guessField {
   width: 300px;
-  height: 50px;
-  font-size: 1.2em;
-  padding: 10px 15px;
-  border: 2px solid #13293d;
-  border-radius: 8px;
-  margin: 15px 0;
-  transition: all 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 50px;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border: 2px solid #13293d;
+    border-radius: 8px;
+    margin: 15px 0;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .win-loss-container {
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
+  /* padding-top: auto; */
   padding-bottom: 20px;
+}
+
+.win-loss-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.win {
+  color: green;
+}
+
+.lose {
+  color: red;
 }
 
 .reset-button {
@@ -97,19 +104,27 @@ header {
 
 #back {
   background: radial-gradient(circle, rgba(240, 230, 140, 1) 0%, rgba(187, 96, 33, 0.95) 100%);
-  border-radius: 8px;
-  color: #13293d;
-  cursor: pointer;
-  font-size: 1.5em;
-  letter-spacing: 0.21px;
-  line-height: 60px;
-  max-width: 255px;
-  padding: 10px 10px;
-  text-align: center;
-  transition-duration: 0.15s;
-  transition-property: background-color;
-  transition-timing-function: linear;
-  margin-top: 0.6em;
+    border-radius: 8px;
+    color: #13293d;
+    cursor: pointer;
+    font-size: 1.5em;
+    letter-spacing: 0.21px;
+    line-height: 60px;
+    max-width: 255px;
+    padding: 10px 10px;
+    text-align: center;
+    transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin-top: 0.6em;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
 }
 
 #word {
@@ -157,72 +172,32 @@ button {
   font-size: 24px;
 }
 
-/* Mobile Styles */
-@media only screen and (max-width: 600px) {
-  .container {
-    padding: 50px;
-  }
-
-  .tile {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-  }
-
-  .timer {
-    height: 200px;
-  }
+.timer {
+  height: 240px;
+  padding: 10px;
+  background: #13293d;
+  color: #fff;
+  text-align: center;
 }
-
 @media screen and (max-width: 720px) {
   .large-font {
     font-size: 2em;
   }
+#word {
+  font-size: 40px;
+  height: 20px;
+  line-height: 8px;
+  margin-top: -10px;
+  padding: 50px;
+}
 
-  #word {
-    font-size: 40px;
-    height: 20px;
-    line-height: 8px;
-    margin-top: -10px;
-    padding: 50px;
-  }
-
-  button #back {
+  button #back{
     font-size: 10px;
-    width: 200px;
-  }
-}
+    width: 20ox;
 
-/* Tablet Styles */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  .container {
-    padding: 75px;
-  }
-
-  .tile {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
   }
 
   .timer {
-    height: 220px;
-  }
-}
-
-/* Desktop Styles */
-@media only screen and (min-width: 1025px) {
-  .container {
-    padding: 100px;
-  }
-
-  .tile {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-  }
-
-  .timer {
-    height: 240px;
+    height: 200px;
   }
 }
