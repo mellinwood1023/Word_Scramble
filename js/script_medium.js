@@ -57,8 +57,6 @@ function shuffle(str) {
 
 const timerEl = document.getElementById('countdown');
 const mainEl = document.getElementById('main');
-const wins = document.querySelector('.win');
-const lose = document.querySelector('.lose');
 
 let timeInterval;
 let timeLeft = 60;

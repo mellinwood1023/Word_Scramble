@@ -57,8 +57,6 @@ function shuffle(str) {
 
 const timerEl = document.getElementById('countdown');
 const mainEl = document.getElementById('main');
-const wins = document.querySelector('.win');
-const lose = document.querySelector('.lose');
 
 let timeInterval;
 let timeLeft = 100;
@@ -106,17 +104,19 @@ refresh();
 function checkGuess() { 
     const userGuess = document.getElementById("guessField").value.toLowerCase();
     if (userGuess === displayWord) {
-        result.textContent= `Correct!`;
-        result.style.backgroundColor = "green";
-        console.log('Correct!');
-        startTimer();
-        refresh();
-      } else {
-        guessField.value ='';
-        result.textContent = `Try again`;
-        result.style.backgroundColor = "red";
-        console.log('Try again');
-      }
+      result.textContent= `Correct!`;
+      result.style.backgroundColor = "green";
+    guessField.value = '';
+  alert(`You got it! The word was '${displayWord.toUpperCase()}'`)      
+      console.log('Correct!');
+      startTimer();
+      refresh();
+    } else {
+      guessField.value = '';
+      result.textContent = `Try again`;
+      result.style.backgroundColor = "red";
+      console.log('Try again');
+    }
 } 
 
 submitGuess.addEventListener("click", checkGuess);
