@@ -2,43 +2,55 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Word Scramble Game</title>
-  <link rel="stylesheet" href="./assets/style_easy.css">
+  <title>Word Scramble Game - Easy</title>
+  <link rel="stylesheet" href="./assets/style_hard.css" />
 </head>
 
 <body>
   <header>
-    <h1>WELCOME TO WOrDsCrAmBLe</h1>
+    <h1 class="gradient-heading">WELCOME TO WOrDsCrAmBLe</h1>
   </header>
+
   <section>
-    <div class="container">
-      <h1 class="welcome"></h1>
-      <h2 id="countdown"></h2>
-      <p id="main"></p>
+    <div class="top-bar">
+      <nav>
+        <a id="back">⬅ exit</a>
+      </nav>
+      <div class="countdown-container">
+        <h2 id="countdown">30 seconds left</h2>
+      </div>
+
+      <div class="win-loss-container">
+        <h2 class="wins">🏆<span id="win">0</span></h2>
+        <h2 class="losses">❌<span id="lose">0</span></h2>
+      </div>
     </div>
 
     <div class="card results">
       <h1>LEVEL: EASY</h1>
-      <nav>
-        <a id="back">⬅ Back Home</a>
-      </nav>
-      <div id="word"></div>
-      <input type="text" id="guessField" class="guessField" placeholder="Unscramble here!" />
-      <div id="message"></div>
-      <button type="submit" value="Submit" id="submitGuess" class="submitGuess">Submit</button>
-      <button type="text" id="hint" class="hint">Hint</button>
-      <button id="reset">Reset</button>
-      <div type="text" id="result" class="result" placeholder=""></div>
 
-      <div class="win-loss-container">
-        <div>
-          <h2>Wins: <span id="win">0</span></h2>
-          <h2>Losses: <span id="lose">0</span></h2>
-        </div>
+      <div id="word"></div>
+      <input
+        type="text"
+        id="guessField"
+        class="guessField"
+        placeholder="Unscramble here!" />
+
+      <div id="message"></div>
+
+      <div class="button-row">
+        <button type="submit" id="submitGuess" class="btn-play">Submit</button>
+        <button type="button" id="hint" class="btn-difficulty">Hint</button>
+        <button type="button" id="reset" class="btn-difficulty">Reset</button>
       </div>
+
+      <div id="result" class="result"></div>
+
+      <button id="playAgain" style="display:none;">Play Again</button>
+    </div>
   </section>
 
   <script src="./js/script_easy.js"></script>

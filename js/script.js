@@ -1,69 +1,54 @@
-
-// Get all dropdown items
 const dropdownItems = document.querySelectorAll('.dropdown-item');
 const dropdownButton = document.getElementById('difficultyButton');
-// let currentDifficulty = 'easy'; // default value
+const playButton = document.getElementById('play-button');
 
-let redirectURL = ''; // variable to store url
+let currentDifficulty = 'easy'; // Default difficulty
 
-const redirectPage = function (url) { // 
-    redirectURL = url; // stores url in variable
-    location.assign(url); // navs to the new page
-};
-
-// Add click event listener to each dropdown item
+// Handle dropdown click
 dropdownItems.forEach(item => {
-    item.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default anchor behavior
-        // currentDifficulty = this.getAttribute('data-value');
+  item.addEventListener('click', function (e) {
+    e.preventDefault();
 
-        // Get the selected value
-        const selectedValue = this.getAttribute('data-value');
-
-        // Update button text
-        dropdownButton.textContent = this.textContent;
-
-        // save to localSstorage
-        localStorage.setItem('difficulty', selectedValue);
-
-        // upon clicking play go to proper page
-        const button = document.querySelector('.btn');
-        button.addEventListener('click', function () {
-            handleDifficultyChange(selectedValue);
-        });
-    });
+    const selectedValue = this.getAttribute('data-value');
+    dropdownButton.textContent = this.textContent;
+    localStorage.setItem('difficulty', selectedValue);
+    currentDifficulty = selectedValue;
+  });
 });
 
-// restore saved difficulty on page load
+// Restore saved difficulty on load
 window.addEventListener('load', function () {
-    const savedDifficulty = localStorage.getItem('difficulty');
-    if (savedDifficulty) {
-        currentDifficulty = savedDifficulty;
-        // update buton text to match saved
-        const selectedItem = this.document.querySelector(`[data-value="${savedDifficulty}"]`);
-        if (selectedItem) {
-            dropdownButton.textContent = selectedItem.textContent;
-        }
+  const savedDifficulty = localStorage.getItem('difficulty');
+  if (savedDifficulty) {
+    currentDifficulty = savedDifficulty;
+    const selectedItem = document.querySelector(`[data-value="${savedDifficulty}"]`);
+    if (selectedItem) {
+      dropdownButton.textContent = selectedItem.textContent;
     }
+  }
 });
 
-// Function to handle the difficulty change
-function handleDifficultyChange(difficulty) {
-    console.log('Selected difficulty:', difficulty);
-    // Add your logic here based on the selected difficulty
-    switch (difficulty) {
-        case 'easy':
-            // link to easy page
-            window.location.href = 'index_easy.html';
-            break;
-        case 'medium':
-            // Handle medium mode
-            window.location.href = 'index_medium.html';
-            break;
-        case 'hard':
-            // Handle hard mode
-            window.location.href = 'index_hard.html';
-            break;
-    }
+// Only one handler for Play button
+playButton.addEventListener('click', function () {
+  handleDifficultyChange(currentDifficulty);
+});
 
+// Handle redirection
+function handleDifficultyChange(difficulty) {
+  switch (difficulty) {
+    case 'easy':
+      window.location.href = 'index_easy.html';
+      break;
+    case 'medium':
+      window.location.href = 'index_medium.html';
+      break;
+    case 'hard':
+      window.location.href = 'index_hard.html';
+      break;
+    case 'CHALLENGE': // Make sure this matches data-value
+      window.location.href = 'index_timeMode.html';
+      break;
+    default:
+      alert('Please choose a difficulty!');
+  }
 }
