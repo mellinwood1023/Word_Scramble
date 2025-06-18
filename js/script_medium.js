@@ -22,7 +22,6 @@ const hints = [
   "From nature", "Personal view", "Image", "One-fourth", "Admiration"
 ];
 
-
 let currentIndex = 0;
 let currentWord = "";
 let currentHint = "";
@@ -37,30 +36,28 @@ const hintBtn = document.getElementById("hint");
 const resetBtn = document.getElementById("reset");
 const playAgainBtn = document.getElementById("playAgain");
 
-let wins = parseInt(localStorage.getItem('wins')) || 0;
-let losses = parseInt(localStorage.getItem('losses')) || 0;
-document.getElementById('win').textContent = wins;
-document.getElementById('lose').textContent = losses;
+let wins = 0;
+let losses = 0;
+
+function updateScoresUI() {
+  document.getElementById('win').textContent = wins;
+  document.getElementById('lose').textContent = losses;
+}
 
 function handleWin() {
   wins++;
-  document.getElementById('win').textContent = wins;
-  localStorage.setItem('wins', wins);
+  updateScoresUI();
 }
 
 function handleLoss() {
   losses++;
-  document.getElementById('lose').textContent = losses;
-  localStorage.setItem('losses', losses);
+  updateScoresUI();
 }
 
 function resetScores() {
   wins = 0;
   losses = 0;
-  document.getElementById('win').textContent = wins;
-  document.getElementById('lose').textContent = losses;
-  localStorage.setItem('wins', wins);
-  localStorage.setItem('losses', losses);
+  updateScoresUI();
 }
 
 function shuffle(str) {
@@ -74,7 +71,7 @@ function shuffle(str) {
 
 function startTimer() {
   clearInterval(timeInterval);
-  timeLeft = 45;
+  timeLeft = 25;
   countdownEl.textContent = `${timeLeft} seconds left`;
 
   timeInterval = setInterval(() => {
@@ -136,6 +133,7 @@ function showFinalScore() {
 }
 
 playAgainBtn?.addEventListener("click", () => {
+  resetScores();
   currentIndex = 0;
   playAgainBtn.style.display = "none";
   nextWord();
@@ -153,4 +151,5 @@ hintBtn.addEventListener("click", checkHint);
 resetBtn.addEventListener("click", resetScores);
 
 // Start game
+updateScoresUI();
 nextWord();

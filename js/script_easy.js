@@ -25,7 +25,6 @@ const hints = [
   "Love organ", "Move to music", "Wand stuff", "For painting", "Night rest"
 ];
 
-
 // DOM elements
 const countdownEl = document.getElementById('countdown');
 const guessField = document.getElementById("guessField");
@@ -34,19 +33,22 @@ const resultEl = document.getElementById("result");
 const hintBtn = document.getElementById("hint");
 const resetBtn = document.getElementById("reset");
 const playAgainBtn = document.getElementById("playAgain");
-
-// Score tracking
-let wins = parseInt(localStorage.getItem('wins')) || 0;
-let losses = parseInt(localStorage.getItem('losses')) || 0;
-document.getElementById('win').textContent = wins;
-document.getElementById('lose').textContent = losses;
+const winDisplay = document.getElementById("win");
+const loseDisplay = document.getElementById("lose");
 
 // Game state
-let timeLeft = 30;
+let wins = 0;
+let losses = 0;
+let timeLeft = 20;
 let timeInterval;
 let currentIndex = 0;
 let currentWord = "";
 let currentHint = "";
+
+function updateScoresUI() {
+  winDisplay.textContent = wins;
+  loseDisplay.textContent = losses;
+}
 
 // Shuffle helper
 function shuffle(str) {
@@ -61,7 +63,7 @@ function shuffle(str) {
 // Timer logic
 function startTimer() {
   clearInterval(timeInterval);
-  timeLeft = 30;
+  timeLeft = 20;
   countdownEl.textContent = `${timeLeft} seconds left`;
 
   timeInterval = setInterval(() => {
@@ -118,23 +120,18 @@ function checkHint() {
 
 function handleWin() {
   wins++;
-  document.getElementById('win').textContent = wins;
-  localStorage.setItem('wins', wins);
+  updateScoresUI();
 }
 
 function handleLoss() {
   losses++;
-  document.getElementById('lose').textContent = losses;
-  localStorage.setItem('losses', losses);
+  updateScoresUI();
 }
 
 function resetScores() {
   wins = 0;
   losses = 0;
-  localStorage.setItem('wins', wins);
-  localStorage.setItem('losses', losses);
-  document.getElementById('win').textContent = wins;
-  document.getElementById('lose').textContent = losses;
+  updateScoresUI();
 }
 
 function showFinalScore() {
@@ -144,7 +141,7 @@ function showFinalScore() {
   playAgainBtn.style.display = "inline-block";
 }
 
-// Keyboard shortcut
+// Button bindings
 guessField.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
@@ -152,15 +149,17 @@ guessField.addEventListener("keydown", (e) => {
   }
 });
 
-// Button bindings
 submitBtn.addEventListener("click", checkGuess);
 hintBtn.addEventListener("click", checkHint);
 resetBtn.addEventListener("click", resetScores);
+
 playAgainBtn.addEventListener("click", () => {
   currentIndex = 0;
+  resetScores();
   playAgainBtn.style.display = "none";
   nextWord();
 });
 
 // Start game
+updateScoresUI();
 nextWord();

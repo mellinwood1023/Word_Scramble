@@ -22,14 +22,12 @@ const hints = [
   "Get a file", "Too strong", "Stop point", "Four-sided shape", "Criminal realm"
 ];
 
-
 let currentIndex = 0;
 let currentWord = "";
 let currentHint = "";
-let timeLeft = 60;
+let timeLeft = 30;
 let timeInterval;
 
-// DOM references
 const countdownEl = document.getElementById('countdown');
 const guessField = document.getElementById("guessField");
 const submitBtn = document.getElementById("submitGuess");
@@ -38,31 +36,28 @@ const hintBtn = document.getElementById("hint");
 const resetBtn = document.getElementById("reset");
 const playAgainBtn = document.getElementById("playAgain");
 
-// Score handling
-let wins = parseInt(localStorage.getItem('wins')) || 0;
-let losses = parseInt(localStorage.getItem('losses')) || 0;
-document.getElementById('win').textContent = wins;
-document.getElementById('lose').textContent = losses;
+let wins = 0;
+let losses = 0;
+
+function updateScoresUI() {
+  document.getElementById('win').textContent = wins;
+  document.getElementById('lose').textContent = losses;
+}
 
 function handleWin() {
   wins++;
-  document.getElementById('win').textContent = wins;
-  localStorage.setItem('wins', wins);
+  updateScoresUI();
 }
 
 function handleLoss() {
   losses++;
-  document.getElementById('lose').textContent = losses;
-  localStorage.setItem('losses', losses);
+  updateScoresUI();
 }
 
 function resetScores() {
   wins = 0;
   losses = 0;
-  localStorage.setItem('wins', wins);
-  localStorage.setItem('losses', losses);
-  document.getElementById('win').textContent = wins;
-  document.getElementById('lose').textContent = losses;
+  updateScoresUI();
 }
 
 function shuffle(str) {
@@ -76,7 +71,7 @@ function shuffle(str) {
 
 function startTimer() {
   clearInterval(timeInterval);
-  timeLeft = 60;
+  timeLeft = 30;
   countdownEl.textContent = `${timeLeft} seconds left`;
 
   timeInterval = setInterval(() => {
@@ -139,11 +134,11 @@ function showFinalScore() {
 
 playAgainBtn?.addEventListener("click", () => {
   currentIndex = 0;
+  resetScores();
   playAgainBtn.style.display = "none";
   nextWord();
 });
 
-// Enter key triggers submit
 guessField.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
@@ -151,10 +146,10 @@ guessField.addEventListener("keydown", (e) => {
   }
 });
 
-// Button bindings
 submitBtn.addEventListener("click", checkGuess);
 hintBtn.addEventListener("click", checkHint);
 resetBtn.addEventListener("click", resetScores);
 
 // Start game
+updateScoresUI();
 nextWord();
